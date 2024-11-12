@@ -3,7 +3,7 @@ import "./App.css";
 import { Sales } from "./page/sales";
 import Login from "./page/Login";
 import CreateAccount from "./page/CreateAccount";
-import Layout from "./layout";
+import Layout from "./Layout";
 import { Toaster } from "react-hot-toast";
 
 function App() {
