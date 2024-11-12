@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Sales } from "./page/sales";
-import Login from "./page/login";
+import Login from "./page/Login";
 import CreateAccount from "./page/CreateAccount";
 import Layout from "./layout";
 import { Toaster } from "react-hot-toast";
