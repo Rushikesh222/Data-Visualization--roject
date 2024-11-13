@@ -7,16 +7,22 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const app = express();
 app.use(cors());
-const Port = 8000;
-const JWT_SECRET = "your_jwt_secret";
-
 app.use(express.json());
+const Port = 8000;
+// const JWT_SECRET = "your_jwt_secret";
+const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
+const MONGO_URI =
+  process.env.MONGO_URI ||
+  "mongodb+srv://shirsatrushikesh6:yAnROK5TfT5sD1Xj@rushikeshdb.hu0nd.mongodb.net/SuperAdmin?retryWrites=true&w=majority";
+const PORT = process.env.PORT || 8000;
+
 mongoose
-  .connect(
-    "mongodb+srv://shirsatrushikesh6:yAnROK5TfT5sD1Xj@rushikeshdb.hu0nd.mongodb.net/SuperAdmin?retryWrites=true&w=majority"
-  )
-  .then(() => console.log("Database connect"))
-  .catch((err) => console.log(err));
+  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Database connected"))
+  .catch((err) => {
+    console.error("Database connection error:", err);
+    process.exit(1);
+  });
 
 app.post("/signin", async (req, res, next) => {
   try {
