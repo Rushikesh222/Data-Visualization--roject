@@ -66,6 +66,10 @@ app.post("/signup", async (req, res, next) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.json("hello");
+});
+
 // Start the server
 app.listen(Port, () => {
   console.log(`Server is running on http://localhost:${Port}`);
