@@ -71,6 +71,4 @@ app.get("/", (req, res) => {
 });
 
 // Start the server
-app.listen(Port, () => {
-  console.log(`Server is running on http://localhost:${Port}`);
-});
+module.exports = app;
